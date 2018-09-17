@@ -1,5 +1,0 @@
-CREATE TABLE book (
-    id int,
-    title varchar(255),
-    body    Address varchar
-);

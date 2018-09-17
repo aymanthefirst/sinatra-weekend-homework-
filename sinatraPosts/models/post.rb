@@ -1,4 +1,4 @@
-class book
+class Post
   attr_accessor :id, :title, :body
   def self.open_connection
     conn = PG.connect(dbname:"postgres", user:"postgres")
@@ -8,26 +8,26 @@ class book
     conn = self.open_connection
     sql = "SELECT * FROM post WHERE id = #{id}"
     result = conn.exec (sql)
-    book = self.hydrate result [0]
-    book
+    post = self.hydrate result [0]
+    post
   end
 
   def self.all
     conn = self.open_connection
-    sql = "SELECT * FROM book ORDER BY id"
+    sql = "SELECT * FROM post ORDER BY id"
     result = conn.exec(sql)
 
-    books = result.map do |tuple|
+    posts = result.map do |tuple|
       self.hydrate tuple
     end
-    books
+    posts
   end
-  def self.hydrate book_data
-    book = Book.new
-    book.id = book_data['id']
-    book.title = book_data['title']
-    book.body = book_data['body']
-    return book
+  def self.hydrate post_data
+    post = Post.new
+    post.id = post_data['id']
+    post.title = post_data['title']
+    post.body = post_data['body']
+    return post
   end
 
 
