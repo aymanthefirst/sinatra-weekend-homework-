@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script  src="\JS\index.js">
+    </script>
+  </head>
+  <body>
+  <% if params != {} %>
+  <%= erb(:'partials/navigation', :layout => false )%>
+  <% end %>
+  <%= yield %>
+
+
+  </body>
+</html>

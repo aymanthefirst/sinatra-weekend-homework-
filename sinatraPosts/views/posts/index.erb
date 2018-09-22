@@ -1,0 +1,9 @@
+
+    <p>posts index</p>
+    <% @posts.each do |post| %>
+    <div>
+    <a href="/<%= post.id%>" ><%= post.title%></a>
+    <br>
+    <p><%= post.body %></p>
+    </div>
+    <% end %>
